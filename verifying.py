@@ -11,9 +11,7 @@ intents.message_content = True
 intents.members = True
 
 # main file here
-import settings, buttons
-
-
+import settings, buttons 
 
 # grabs the first message at gets the user id from it
 def msg_brake(messages):
@@ -24,13 +22,13 @@ def msg_brake(messages):
 
 
 
+
+
+
+
 async def verify(id, guild, client):
 
-	importlib.reload(settings)
-	
 	class nubnigus(nextcord.ui.View):
-
-
 		@nextcord.ui.button(label="Ready!", style=nextcord.ButtonStyle.primary)
 		async def first_button_callback(self, button, interaction):
 			importlib.reload(buttons)
@@ -48,36 +46,38 @@ async def verify(id, guild, client):
 
 
 
+
 	name = await client.fetch_user(id)
 	print (name)
 
 	guild = client.get_guild(guild)
 
-	# sets permisions for the channel
-	# overwrites = {
-	# 	guild.default_role: nextcord.PermissionOverwrite(read_messages=False),
-	# 	guild.get_role(798587674868973654): nextcord.PermissionOverwrite(read_messages=True), # Queen Bee
-	# 	guild.get_role(799619598835122236): nextcord.PermissionOverwrite(read_messages=True), # worker bees
-	# 	guild.get_role(798587674868973651): nextcord.PermissionOverwrite(read_messages=True), # bots
-	# 	guild.get_role(801464683650744330): nextcord.PermissionOverwrite(read_messages=True), # helper bees
-	# 	guild.get_role(801823713988444182): nextcord.PermissionOverwrite(read_messages=True), # Trial Bees
-	# 	guild.get_role(798592176854007878): nextcord.PermissionOverwrite(read_messages=True), # New Bees
-	# 	guild.get_role(798587674868973652): nextcord.PermissionOverwrite(read_messages=True), # Admin Bees
-	# 	guild.get_member(id): nextcord.PermissionOverwrite(read_messages=True)
-	# }
+    
+	overwrites = {
+		guild.default_role: nextcord.PermissionOverwrite(read_messages=False),
+		guild.get_role(798587674868973654): nextcord.PermissionOverwrite(read_messages=True), # Queen Bee
+		guild.get_role(799619598835122236): nextcord.PermissionOverwrite(read_messages=True), # worker bees
+		guild.get_role(798587674868973651): nextcord.PermissionOverwrite(read_messages=True), # bots
+		guild.get_role(801464683650744330): nextcord.PermissionOverwrite(read_messages=True), # helper bees
+		guild.get_role(801823713988444182): nextcord.PermissionOverwrite(read_messages=True), # Trial Bees
+		guild.get_role(798592176854007878): nextcord.PermissionOverwrite(read_messages=True), # New Bees
+		guild.get_role(798587674868973652): nextcord.PermissionOverwrite(read_messages=True), # Admin Bees
+		guild.get_member(id): nextcord.PermissionOverwrite(read_messages=True)
+	}
 
-	channel = await client.get_channel(1104416355832315945).create_text_channel(name=f"verify ~ {name}") # , overwrites=overwrites)
+	channel = await client.get_channel(1079901631572885544).create_text_channel(name=f"verify ~ {name}", overwrites=overwrites)
 
 	# mark = (str(int(time.time() * 1000000000)) + str(random.randint(0, 99999999999999)).zfill(24 - len(str(time.time))))
 
-	# await client.get_channel(1103841374618525817).send(f"{id} {mark} ")
+	
+    #await client.get_channel(1103841374618525817).send(f"{id} {mark} ")
 	await channel.send(f"<@{id}>") #" {mark}")  
 
 
 
 
 	 
-	await channel.send(f"{settings.intro('intro')}")
+	await channel.send(f"{settings.intro('intro')}\n{settings.intro('fill_me')}")
 
 
 

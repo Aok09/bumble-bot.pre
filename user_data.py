@@ -25,13 +25,14 @@ async def log(message, client):
 		channels = guild.channels
 		for channel in channels:
 			if str(channel.name) == str(message.author.id):
+				# print (f"oh shit {channel.name} is the one")
 
 				messages = await channel.history(limit=1, oldest_first=True).flatten()
 				fm = messages[0]
 				cont = user_id
-				print (cont, fm.content)
+				# print (cont, fm.content)
 				fm = str(fm.content).split(" ")
-				print (f"{fm[0]}, {fm[1]}, {fm[2]}")
+				# print (f"{fm[0]}, {fm[1]}, {fm[2]}")
 				await client.get_channel(int(fm[0])).send(f"{message.id} | {message.channel.id} ~ content: {message.content}")
 				await client.get_channel(int(fm[1])).send(f"{message}")
 
@@ -50,6 +51,5 @@ async def log(message, client):
 
 	await channel.send(f"{channel.id} {cont.id} {prof.id}")
 	await channel.send(f"{username}#{username_hash}")
-	
 # main file ends here
 print (f"file ready to go. {name} is a GO!\n----------------------------------")

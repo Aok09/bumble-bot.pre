@@ -151,7 +151,9 @@ If you need help, don't be afraid to go to our lovely <#1090350043241918636> to 
 If you are ever confused about something don't forget to <#799006595107389441>, or go to <#798999152557948960>
 
 We offer these resources to help others have accessible information, and be confident in their knowledge!
-
+"""
+	if grab == "fill_me":
+		hand_off = """
 Please answer these questions to the best of your ability
 ```
 ♡ How Old Are You?
@@ -160,7 +162,7 @@ Please answer these questions to the best of your ability
 ♡ Please Summarize The Rules In Your Own Words! (if you need some help please read <#798587675031371837>)
 ♡ How would you describe age regression in your own words?
 ```
-please don't forget to make an intro in <#798625729502904400> and get roles at <#798587675031371838>
+♡ please don't forget to make an intro in <#798625729502904400> and get roles at <#798587675031371838>
 	
 	"""
 

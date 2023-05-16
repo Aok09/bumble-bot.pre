@@ -35,7 +35,7 @@ async def verify_finished(self, interaction: nextcord.Interaction, button, clien
 		await interaction.response.send_message("oops! it looks like you may have pressed the button to early thats ok. you got this!👍")
 		return 
 
-	intros = client.get_channel(1104444464581320795)
+	intros = client.get_channel(798625729502904400)
 
 	async for message in intros.history(limit=None):
 		if int(message.author.id) == id:
@@ -64,10 +64,6 @@ async def verify_finished(self, interaction: nextcord.Interaction, button, clien
 			await interaction.response.send_message("hold on somethings not right here <@1103489418360275059> please help!")
 			return
 
-
-
-
-
 async def verify_close(self, interaction: nextcord.Interaction, button, client):
 
 	class check(nextcord.ui.View):
@@ -83,5 +79,6 @@ async def verify_close(self, interaction: nextcord.Interaction, button, client):
 			
 
 	await interaction.response.send_message("are you sure?", view=check())
+	
 # main file ends here
 print (f"file ready to go. {name} is a GO!\n----------------------------------")

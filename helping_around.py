@@ -1,4 +1,3 @@
-
 print("----------------------------------")
 name = "helping around"
 print (f"importing for: {name}")
@@ -15,13 +14,13 @@ import settings
 
 # user join the server
 async def joining(member, client):   
-	if member.guild.id == 1103066534978539624:
+	if member.guild.id == 798587674868973648:
 		# gives the data needed to make the server look nice 
 		gifs = {"weclome": ["https://cdn.discordapp.com/attachments/976936075635327086/1092974087560757358/c1.gif", "https://cdn.discordapp.com/attachments/976936075635327086/1092972371146723399/c1.gif"],
 				"goodbye": ["https://cdn.discordapp.com/attachments/976936075635327086/1092974720443486218/c1.gif", "https://cdn.discordapp.com/attachments/976936075635327086/1092973605748482200/c1.gif"]}
 		channels = {798587674868973648: [798587674868973657],
-					1103066534978539624: [1107833476989857912]}
-		# selectes the correct channel based on the server
+					1091870589817466940: [1092846715859644416]}
+		# selectes the correct channal based on the server
 		channel = client.get_channel(channels[member.guild.id][0])
 
 		# sends the message 
@@ -30,29 +29,18 @@ async def joining(member, client):
   
 # user leaves the server
 async def leaving(member, client):
-	if member.guild.id == 1103066534978539624:
+	if member.guild.id == 798587674868973648:
 		# gives the data needed to make the server look nice 
 		gifs = {"weclome": ["https://cdn.discordapp.com/attachments/976936075635327086/1092974087560757358/c1.gif", "https://cdn.discordapp.com/attachments/976936075635327086/1092972371146723399/c1.gif"],
 				"goodbye": ["https://cdn.discordapp.com/attachments/976936075635327086/1092974720443486218/c1.gif", "https://cdn.discordapp.com/attachments/976936075635327086/1092973605748482200/c1.gif"]}
 		channels = {798587674868973648: [798587674868973657],
-					1103066534978539624: [1107833476989857912]}
-		# selectes the correct channel based on the server
+					1091870589817466940: [1092846715859644416]}
+		# selectes the correct channal based on the server
 		channel = client.get_channel(channels[member.guild.id][0])
 
 		# sends the message 
-		await channel.send(f"goodbye {member.mention} ||{member.name}||, we hope you had a good stay at {member.guild.name}")
+		await channel.send(f"goodbye {member.mention}, we hope you had a good stay at {member.guild.name}")
 		await channel.send(f"{random.choice(gifs['goodbye'])}")
-
-
-		category = await client.fetch_channel(1107833476989857912)
-
-		for channel in category.channels:
-			print(channel.name)
-			messages = await interaction.channel.history(limit=1, oldest_first=True).flatten()
-			id = msg_brake(messages)[0]
-
-			if id == member.id:
-				await channel.delete()
 
 
 

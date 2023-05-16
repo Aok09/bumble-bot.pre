@@ -1,7 +1,7 @@
 print("----------------------------------")
 name = "main"
 print (f"importing for: {name}")
-import nextcord, os, os.path, random, time, pickle, importlib, logs
+import nextcord, time, pickle, importlib, asyncio, pytz, cammands, main
 print (f"imports done for: {name}, now working on intents")
 
 # intents
@@ -14,25 +14,20 @@ import cammands, user_data
 
 async def message(message, client, testers):
 	if message.author.bot == 0:
-		message = await message.channel.fetch_message(message.id)
 
-		importlib.reload(logs)
-		await logs.save(message, client)
 
- 
-		prefix = "."
 
 
 		importlib.reload(cammands)
 		importlib.reload(user_data)
 
-		await cammands.cammands(message, client, testers, prefix)
+		await cammands.cammands(message, client, testers, ".")
 		# await user_data.log(message, client)
 
 
-
-
 	print("done")
+
+
 
 
 

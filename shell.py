@@ -1,9 +1,9 @@
-print ("shell\nimporting")
+print ("main\nimporting")
 import nextcord, time, pickle, importlib, asyncio, pytz, cammands, main
 from nextcord import File
 from datetime import datetime
 print ("finding files")
-import helping_around, verifying, user_data, logs
+import helping_around, verifying, user_data
 print ("all files found moving to prelanch")
 
 # sets who can use the bot
@@ -40,17 +40,6 @@ async def on_message(message):
 
 	await main.message(message, client, testers)
 
-@client.event 
-async def on_message_edit(before, after):
-
-	importlib.reload(logs)
-	await logs.edit(before, after, client)
-
-@client.event 
-async def on_message_delete(message):
- 
-	importlib.reload(logs)
-	await logs.deleted(message, client)
 
 
 @client.event
@@ -71,18 +60,18 @@ async def on_member_remove(member):
 	await helping_around.leaving(member, client)
 
 
-# async def send_message():
-# 	await client.wait_until_ready()
-# 	channel = client.get_channel(1061414516438614037) # Replace channel_id with the ID of the channel you want to send the message in
-# 	while not client.is_closed():
-# 		print("loop")
-# 		now = datetime.now(pytz.timezone('US/Eastern'))
-# 		if now.hour == 6 or now.hour == 20:
-# 			message = f"""it is {now.hour} and has Casey<3 had their' meds been "*administered*"?\n|| <@519240996987600900> <@975016627747840020>||"""
-# 			await channel.send(message)
-# 		await asyncio.sleep(1800) # checks every 2 min
+async def send_message():
+	await client.wait_until_ready()
+	channel = client.get_channel(1061414516438614037) # Replace channel_id with the ID of the channel you want to send the message in
+	while not client.is_closed():
+		print("loop")
+		now = datetime.now(pytz.timezone('US/Eastern'))
+		if now.hour == 6 or now.hour == 20:
+			message = f"""it is {now.hour} and has Casey<3 had their' meds been "*administered*"?\n|| <@519240996987600900> <@975016627747840020>||"""
+			await channel.send(message)
+		await asyncio.sleep(120) # checks every 2 min
 
-# client.loop.create_task(send_message())
+
 
 
 print ("token running")
